@@ -4,114 +4,226 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Privacy Policy — Sharp</title>
-<meta name="description" content="How Sharp handles your data: on-device Screen Time processing, no tracking, no ads, no selling of data." />
+<meta name="description" content="How Sharp handles your data: Screen Time stays on your device, no ads, no tracking, no selling of data. Read the full privacy policy." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F7F2EA; --surface:#FFFDF9; --ink:#1A1613; --ink-2:#6E655A;
-    --accent:#E5532E; --gold:#C8951F; --hairline:#E4DBCD; --maxw:760px;
+    --paper:#F7F2EA; --paper-2:#F1E9DC; --surface:#FFFDF9;
+    --ink:#1A1613; --ink-2:#6E655A;
+    --accent:#E5532E; --accent-deep:#C8351F; --gold:#C8951F; --green:#2E8B57;
+    --hairline:#E4DBCD; --shadow:0 18px 50px -20px rgba(40,25,15,.28);
+    --maxw:1140px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  h1,h2,h3,.serif{font-family:'Fraunces','Georgia',serif;line-height:1.1;letter-spacing:-.01em;color:var(--ink);}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
-  h1,h2,h3{font-family:'Fraunces','Georgia',serif;line-height:1.1;letter-spacing:-.01em;color:var(--ink);}
+  .accent{color:var(--accent)}
   a{color:var(--accent);text-decoration:none}
   a:hover{text-decoration:underline}
-  header.top{padding:38px 0 26px;border-bottom:1px solid var(--hairline);}
-  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-weight:700;font-size:22px;}
-  .dot{width:13px;height:13px;border-radius:50%;background:var(--accent);display:inline-block}
-  h1{font-size:40px;margin:34px 0 6px;font-weight:700}
-  .meta{color:var(--ink-2);font-size:14px;margin-bottom:30px}
-  h2{font-size:23px;margin:38px 0 10px;font-weight:600}
-  h3{font-size:17px;margin:22px 0 6px;font-weight:600;font-family:'Inter',sans-serif;}
-  p,li{color:#2C2620;font-size:16px;margin-bottom:12px}
-  ul{padding-left:22px;margin-bottom:14px}
-  li{margin-bottom:7px}
-  .card{background:var(--surface);border:1px solid var(--hairline);border-radius:16px;padding:20px 22px;margin:18px 0;}
-  .tldr{background:#FBF4EC;border:1px solid #EAD9C4;}
-  strong{color:var(--ink)}
-  footer{margin:50px 0 60px;padding-top:22px;border-top:1px solid var(--hairline);color:var(--ink-2);font-size:14px}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(247,242,234,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--hairline);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:'Inter';font-weight:800;letter-spacing:.28em;font-size:15px;color:var(--ink)}
+  .logo .dot{color:var(--accent)}
+  .nav-cta{background:var(--ink);color:#fff !important;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;transition:.2s}
+  .nav-cta:hover{background:var(--accent);transform:translateY(-1px);text-decoration:none}
+
+  /* HERO */
+  .phead{padding:64px 0 26px;border-bottom:1px solid var(--hairline);
+    background:radial-gradient(120% 140% at 80% -10%, rgba(229,83,46,.10), transparent 60%);}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--accent);background:rgba(229,83,46,.1);padding:7px 14px;border-radius:999px}
+  .phead h1{font-size:clamp(40px,6vw,64px);font-weight:900;margin:22px 0 10px}
+  .meta{color:var(--ink-2);font-size:14.5px}
+  .meta b{color:var(--ink)}
+
+  /* LAYOUT: sticky TOC + content */
+  .layout{display:grid;grid-template-columns:230px 1fr;gap:52px;padding:56px 0 40px;align-items:start}
+  @media(max-width:900px){.layout{grid-template-columns:1fr;gap:8px}.toc{display:none}}
+  .toc{position:sticky;top:96px}
+  .toc .lbl{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:14px}
+  .toc a{display:block;color:var(--ink-2);font-size:14.5px;font-weight:500;padding:7px 0;border-left:2px solid var(--hairline);padding-left:14px;transition:.18s}
+  .toc a:hover{color:var(--ink);border-color:var(--accent);text-decoration:none}
+
+  /* TLDR */
+  .tldr{background:linear-gradient(180deg,#FBF4EC, #F7EFE2);border:1px solid #EAD9C4;border-radius:20px;padding:26px 28px;margin-bottom:40px;box-shadow:var(--shadow)}
+  .tldr .tag{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:10px}
+  .tldr p{font-size:16.5px;color:#2C2620}
+  .tldr strong{color:var(--ink)}
+  .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .pill{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--hairline);
+    border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;color:var(--ink)}
+  .pill .d{width:8px;height:8px;border-radius:50%;background:var(--green)}
+  .pill.no .d{background:var(--accent)}
+
+  /* CONTENT */
+  .content h2{font-size:25px;font-weight:700;margin:44px 0 6px;scroll-margin-top:90px;display:flex;align-items:baseline;gap:12px}
+  .content h2 .n{font-family:'Inter';font-size:13px;font-weight:800;color:#fff;background:var(--accent);
+    width:26px;height:26px;border-radius:8px;display:inline-grid;place-items:center;flex-shrink:0;transform:translateY(-2px)}
+  .content h3{font-size:17px;font-weight:700;font-family:'Inter';margin:24px 0 6px}
+  .content p,.content li{color:#2C2620;font-size:16px;margin-bottom:12px}
+  .content ul{padding-left:4px;margin:6px 0 16px;list-style:none}
+  .content ul li{position:relative;padding-left:26px}
+  .content ul li::before{content:"";position:absolute;left:4px;top:11px;width:7px;height:7px;border-radius:50%;background:var(--accent);opacity:.7}
+  .content strong{color:var(--ink)}
+  .card{background:var(--surface);border:1px solid var(--hairline);border-radius:18px;padding:22px 24px;margin:18px 0;}
+  .card.accenty{border-left:4px solid var(--accent)}
+  .contact-card{background:var(--paper-2);border:1px solid var(--hairline);border-radius:20px;padding:28px;margin-top:40px;text-align:center}
+  .contact-card h3{font-family:'Fraunces';font-size:22px;margin-bottom:6px}
+  .contact-card a{font-weight:700}
+
+  /* FOOTER */
+  footer{padding:48px 0 60px;text-align:center;color:var(--ink-2);font-size:14px;border-top:1px solid var(--hairline);margin-top:20px}
+  footer .logo{color:var(--ink);margin-bottom:12px;display:inline-block}
+  .fnav{margin:12px 0;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-size:14px}
+  .fnav a{color:var(--ink-2)}.fnav a:hover{color:var(--ink);text-decoration:none}
+  .disc{font-size:12px;color:var(--ink-2);opacity:.85;max-width:640px;margin:16px auto 0}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap"><div class="brand"><span class="dot"></span> Sharp</div></div></header>
 
-<main class="wrap">
-  <h1>Privacy Policy</h1>
-  <p class="meta">Last updated: June 30, 2026</p>
-
-  <div class="card tldr">
-    <p style="margin:0"><strong>The short version.</strong> Sharp is built to keep your data on your phone. Your Screen Time and app-usage data <strong>never leave your device</strong>. We don't show ads, we don't track you across other apps or websites, and we never sell your data. The only things we store in the cloud are the basics needed to back up your progress and run friend leaderboards — and only if you choose to use those features.</p>
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html"><div class="logo">SHAR<span class="dot">P</span></div></a>
+    <a href="index.html" class="nav-cta">← Back to site</a>
   </div>
+</nav>
 
-  <p>This policy explains what information Sharp ("we," "us," the "app") collects, how we use it, and the choices you have. Sharp is operated as an independent app available on the Apple App Store. If you have questions, contact us at <a href="mailto:privacy@sharpdaily.app">privacy@sharpdaily.app</a>.</p>
+<header class="phead">
+  <div class="wrap">
+    <span class="eyebrow">🔒 Your data, your device</span>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: <b>July 1, 2026</b> · Applies to the Sharp iOS app and sharpdaily.app</p>
+  </div>
+</header>
 
-  <h2>1. Screen Time data stays on your device</h2>
-  <p>Sharp uses Apple's <strong>Family Controls, Device Activity, and Managed Settings</strong> frameworks to help you limit your own apps. With your explicit, opt-in permission, you choose which of your own apps to guard and set a personal daily time limit.</p>
-  <ul>
-    <li>The selection of apps you guard is represented by <strong>opaque tokens</strong> that Apple does not let us read, and it is stored only on your device.</li>
-    <li>We do <strong>not</strong> collect, transmit, store off-device, or share your Screen Time data, app-usage data, or app selections.</li>
-    <li>None of this data is ever used for analytics or advertising.</li>
-  </ul>
-  <p>Sharp is a self-control tool for managing your <strong>own</strong> device. It is not a parental-control, monitoring, or surveillance product.</p>
+<div class="wrap layout">
 
-  <h2>2. Account &amp; progress data</h2>
-  <p>To save your streak and XP and to power friend leaderboards, Sharp stores a small amount of data in our cloud backend (hosted by Supabase). Depending on how you use the app, this may include:</p>
-  <ul>
-    <li>A <strong>random account identifier</strong> (created automatically — no signup required to start).</li>
-    <li>Your chosen <strong>display name / nickname</strong>, <strong>streak count</strong>, <strong>XP</strong>, and a short <strong>invite code</strong>.</li>
-    <li><strong>Friend connections</strong> you create by exchanging invite codes.</li>
-  </ul>
-  <p>Your display name, XP, and streak are visible to people you connect with and may appear on leaderboards within the app. We do not collect your contacts.</p>
+  <!-- TOC -->
+  <aside class="toc">
+    <div class="lbl">On this page</div>
+    <a href="#s1">1 · Screen Time stays on-device</a>
+    <a href="#s2">2 · Account &amp; progress</a>
+    <a href="#s3">3 · Friends &amp; leagues</a>
+    <a href="#s4">4 · Daily briefings</a>
+    <a href="#s5">5 · Payments</a>
+    <a href="#s6">6 · What we don't do</a>
+    <a href="#s7">7 · Who we share with</a>
+    <a href="#s8">8 · Your choices</a>
+    <a href="#s9">9 · Security</a>
+    <a href="#s10">10 · Children</a>
+    <a href="#s11">11 · Changes</a>
+    <a href="#s12">12 · Contact</a>
+  </aside>
 
-  <h3>Sign in with Apple (optional)</h3>
-  <p>If you choose to sign in with Apple to back up your account across devices, Apple provides us with a unique identifier and, if you allow it, an email address (which may be Apple's private relay address) and your name. We use these only to secure your account and sync your progress. We never receive your Apple password.</p>
+  <main class="content">
 
-  <h2>3. Daily news briefings</h2>
-  <p>Sharp downloads its daily current-affairs briefings from a public content file we publish. This is a simple download — <strong>no personal information is sent</strong> when your app fetches the day's content.</p>
+    <div class="tldr">
+      <span class="tag">The short version</span>
+      <p>Sharp is built to keep your data on your phone. Your Screen Time and app-usage data <strong>never leave your device</strong>. We don't show ads, we don't track you across other apps or sites, and we <strong>never sell your data</strong>. The only things stored in the cloud are the basics needed to back up your progress and run friend leagues — and only if you use those features.</p>
+      <div class="pill-row">
+        <span class="pill"><span class="d"></span> On-device Screen Time</span>
+        <span class="pill no"><span class="d"></span> No ads</span>
+        <span class="pill no"><span class="d"></span> No tracking</span>
+        <span class="pill no"><span class="d"></span> No data selling</span>
+        <span class="pill"><span class="d"></span> Delete anytime</span>
+      </div>
+    </div>
 
-  <h2>4. Payments &amp; subscriptions</h2>
-  <p>Subscriptions are processed by <strong>Apple</strong> through the App Store. Sharp never sees or stores your payment-card details or billing information — Apple handles all billing and tells the app only whether your subscription is active. Manage or cancel your subscription anytime in your Apple account settings.</p>
+    <p>This policy explains what information Sharp ("we," "us," the "app") collects, how we use it, and the choices you have. Sharp is an independent app on the Apple App Store. Questions? <a href="mailto:privacy@sharpdaily.app">privacy@sharpdaily.app</a>.</p>
 
-  <h2>5. What we do NOT do</h2>
-  <ul>
-    <li>We do <strong>not</strong> show advertising.</li>
-    <li>We do <strong>not</strong> use third-party advertising or analytics SDKs, and we do <strong>not</strong> track you across other apps or websites (no IDFA / App Tracking Transparency tracking).</li>
-    <li>We do <strong>not</strong> sell or rent your personal data to anyone.</li>
-  </ul>
+    <h2 id="s1"><span class="n">1</span> Screen Time data stays on your device</h2>
+    <p>Sharp uses Apple's <strong>Family Controls, Device Activity, and Managed Settings</strong> frameworks to help you limit your own apps. With your explicit, opt-in permission, you choose which of your own apps to guard and set a personal daily time limit. When you reach it, Sharp shows its own shield screen and a short current-affairs briefing to earn your time back.</p>
+    <ul>
+      <li>The apps you guard are represented by <strong>opaque tokens</strong> that Apple does not let us read; they're stored only on your device.</li>
+      <li>We do <strong>not</strong> collect, transmit, store off-device, or share your Screen Time data, app-usage data, or app selections.</li>
+      <li>None of this data is ever used for analytics or advertising.</li>
+    </ul>
+    <div class="card accenty"><p style="margin:0">Sharp is a self-control tool for managing <strong>your own</strong> device. It is <strong>not</strong> a parental-control, monitoring, or surveillance product.</p></div>
 
-  <h2>6. Who we share data with</h2>
-  <p>We share data only with service providers that help us run the app, and only as needed to provide it:</p>
-  <ul>
-    <li><strong>Supabase</strong> — stores your account and progress data on our behalf.</li>
-    <li><strong>Apple</strong> — provides Sign in with Apple and processes subscription payments.</li>
-  </ul>
-  <p>We may disclose information if required by law. Otherwise, we don't share your data.</p>
+    <h2 id="s2"><span class="n">2</span> Account &amp; progress data</h2>
+    <p>To save your streak and XP and to power friend leagues, Sharp stores a small amount of data in our cloud backend (hosted by Supabase). Depending on how you use the app, this may include:</p>
+    <ul>
+      <li>A <strong>random account identifier</strong> (created automatically — no signup required to start).</li>
+      <li>Your chosen <strong>display name</strong>, <strong>streak</strong>, <strong>XP</strong>, and a short <strong>invite code</strong>.</li>
+      <li><strong>Friend connections</strong> you create by exchanging invite codes.</li>
+    </ul>
+    <h3>Sign in with Apple (optional)</h3>
+    <p>If you choose to sign in with Apple to back up your account across devices, Apple gives us a unique identifier and, if you allow it, an email (which may be Apple's private relay address) and your name. We use these only to secure your account and sync your progress. We never receive your Apple password.</p>
 
-  <h2>7. Data retention &amp; your choices</h2>
-  <ul>
-    <li>You can change your display name and news preferences at any time in the app.</li>
-    <li>You can request deletion of your account and associated cloud data by emailing <a href="mailto:privacy@sharpdaily.app">privacy@sharpdaily.app</a>. We will delete it promptly.</li>
-    <li>Deleting the app removes all on-device data (including your guarded-app selection and limits).</li>
-  </ul>
-  <p>Depending on where you live, you may have rights to access, correct, or delete your personal data (for example, under the GDPR or CCPA). To exercise these rights, contact us at the address above. We do not sell personal information.</p>
+    <h2 id="s3"><span class="n">3</span> Friends &amp; leagues</h2>
+    <p>Sharp includes optional social features — invite friends with a code, and appear together in a weekly league. If you use them:</p>
+    <ul>
+      <li>Your <strong>display name, XP, and streak</strong> are visible to people you connect with and may appear on leaderboards within the app.</li>
+      <li>We do <strong>not</strong> access your contacts, address book, or location. Friends are added only by manually exchanging invite codes.</li>
+      <li>You can remove friends or change your display name at any time in the app.</li>
+    </ul>
 
-  <h2>8. Security</h2>
-  <p>Data sent between the app and our backend is encrypted in transit (HTTPS/TLS). Access to account data is restricted by row-level security so that each account can only read and write its own records.</p>
+    <h2 id="s4"><span class="n">4</span> Daily news briefings</h2>
+    <p>Sharp downloads its daily current-affairs briefings from a public content file we publish. This is a simple download — <strong>no personal information is sent</strong> when your app fetches the day's content.</p>
 
-  <h2>9. Children</h2>
-  <p>Sharp is intended for adults and is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, contact us and we will delete it.</p>
+    <h2 id="s5"><span class="n">5</span> Payments &amp; subscriptions</h2>
+    <p>Subscriptions are processed by <strong>Apple</strong> through the App Store. Sharp never sees or stores your payment-card details or billing information — Apple handles all billing and tells the app only whether your subscription is active. Manage or cancel anytime in your Apple account settings.</p>
 
-  <h2>10. Changes to this policy</h2>
-  <p>We may update this policy from time to time. When we do, we'll revise the "Last updated" date above. Material changes will be reflected here.</p>
+    <h2 id="s6"><span class="n">6</span> What we do <em>not</em> do</h2>
+    <ul>
+      <li>We do <strong>not</strong> show advertising.</li>
+      <li>We do <strong>not</strong> use third-party advertising or analytics SDKs, and we do <strong>not</strong> track you across other apps or websites (no IDFA / App Tracking Transparency tracking).</li>
+      <li>We do <strong>not</strong> sell or rent your personal data to anyone.</li>
+    </ul>
 
-  <h2>11. Contact</h2>
-  <p>Questions about this policy or your data? Email <a href="mailto:privacy@sharpdaily.app">privacy@sharpdaily.app</a>.</p>
+    <h2 id="s7"><span class="n">7</span> Who we share data with</h2>
+    <p>We share data only with service providers that help us run the app, and only as needed:</p>
+    <ul>
+      <li><strong>Supabase</strong> — stores your account and progress data on our behalf.</li>
+      <li><strong>Apple</strong> — provides Sign in with Apple and processes subscription payments.</li>
+    </ul>
+    <p>We may disclose information if required by law. Otherwise, we don't share your data.</p>
 
-  <footer>© 2026 Sharp. Stop scrolling. Start knowing.</footer>
-</main>
+    <h2 id="s8"><span class="n">8</span> Data retention &amp; your choices</h2>
+    <ul>
+      <li>You can change your display name and news preferences at any time in the app.</li>
+      <li>You can request deletion of your account and associated cloud data by emailing <a href="mailto:privacy@sharpdaily.app">privacy@sharpdaily.app</a> — we'll delete it promptly.</li>
+      <li>Deleting the app removes all on-device data (including your guarded-app selection and limits).</li>
+    </ul>
+    <p>Depending on where you live, you may have rights to access, correct, or delete your personal data (for example under the <strong>GDPR</strong> or <strong>CCPA</strong>). To exercise these rights, contact us at the address above. We do not sell personal information.</p>
+
+    <h2 id="s9"><span class="n">9</span> Security</h2>
+    <p>Data sent between the app and our backend is encrypted in transit (HTTPS/TLS). Access to account data is restricted by row-level security so each account can only read and write its own records.</p>
+
+    <h2 id="s10"><span class="n">10</span> Children</h2>
+    <p>Sharp is intended for adults and is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, contact us and we'll delete it.</p>
+
+    <h2 id="s11"><span class="n">11</span> Changes to this policy</h2>
+    <p>We may update this policy from time to time. When we do, we'll revise the "Last updated" date above. Material changes will be reflected here.</p>
+
+    <h2 id="s12"><span class="n">12</span> Contact</h2>
+    <div class="contact-card">
+      <h3>Questions about your data?</h3>
+      <p style="margin-bottom:0">Email us and a real person will get back to you.<br><a href="mailto:privacy@sharpdaily.app">privacy@sharpdaily.app</a></p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">SHAR<span style="color:var(--accent)">P</span></div>
+    <p>Stop scrolling. Start knowing.</p>
+    <div class="fnav">
+      <a href="index.html">Home</a>
+      <a href="index.html#how">How it works</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:privacy@sharpdaily.app">Contact</a>
+    </div>
+    <p class="disc">Sharp helps you stay informed and manage your own app usage. It is a knowledge and digital-wellbeing tool. © 2026 Sharp.</p>
+  </div>
+</footer>
+
 </body>
 </html>
