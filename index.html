@@ -137,17 +137,10 @@
     padding:64px 40px;text-align:center;margin:0 24px;box-shadow:var(--shadow)}
   .cta h2{color:#fff;font-size:clamp(30px,4vw,48px);font-weight:800}
   .cta p{color:rgba(255,255,255,.85);font-size:18px;margin-top:16px}
-  .waitlist{display:flex;gap:10px;max-width:480px;margin:32px auto 0;flex-wrap:wrap;justify-content:center}
-  .waitlist input{flex:1;min-width:220px;padding:16px 20px;border-radius:14px;border:none;font-size:16px;font-family:'Inter'}
-  .waitlist input:focus{outline:2px solid var(--gold)}
-  .waitlist .btn-primary{background:#fff;color:var(--accent-deep)}
-  .waitlist .btn-primary:hover{background:#fff;opacity:.92}
-  .platform-toggle{display:inline-flex;gap:4px;background:rgba(255,255,255,.14);padding:5px;border-radius:999px;margin-bottom:24px}
-  .platform-toggle button{background:transparent;border:none;color:rgba(255,255,255,.7);font-family:'Inter';
-    font-weight:600;font-size:14px;padding:8px 18px;border-radius:999px;cursor:pointer;transition:.2s}
-  .platform-toggle button.on{background:#fff;color:var(--accent-deep)}
+  .download-cta{display:flex;justify-content:center;margin:32px auto 0}
+  .download-cta .btn-primary{background:#fff;color:var(--accent-deep);font-size:17px;padding:16px 28px}
+  .download-cta .btn-primary:hover{background:#fff;opacity:.92}
   .cta-note{font-size:13px;color:rgba(255,255,255,.7);margin-top:18px}
-  #wl-done{display:none;font-size:18px;font-weight:600;margin-top:28px}
 
   /* FOOTER */
   footer{padding:48px 0 60px;text-align:center;color:var(--ink-2);font-size:14px}
@@ -168,7 +161,7 @@
       <a href="#problem">The problem</a>
       <a href="#how">How it works</a>
       <a href="#why">Why it works</a>
-      <a href="#waitlist" class="nav-cta">Join the waitlist</a>
+      <a href="https://apps.apple.com/app/id6786261980" class="nav-cta">Download</a>
     </div>
   </div>
 </nav>
@@ -181,10 +174,10 @@
       <h1>Stop scrolling.<br><span class="accent">Start knowing.</span></h1>
       <p class="sub">When you hit your limit on the apps that eat your day, Sharp turns the urge to scroll into 90 seconds on what's actually happening in the world — then you've earned your time back.</p>
       <div class="hero-cta">
-        <a href="#waitlist" class="btn btn-primary">Join the waitlist →</a>
+        <a href="https://apps.apple.com/app/id6786261980" class="btn btn-primary">Download on the App Store →</a>
         <a href="#how" class="btn btn-ghost">See how it works</a>
       </div>
-      <p class="hero-note">Set it once — protection runs itself. <b>No Shortcuts, no setup. Launching on iOS in 2026.</b></p>
+      <p class="hero-note">Set it once — protection runs itself. <b>No Shortcuts, no setup. Available now on iPhone.</b></p>
     </div>
     <div>
       <div class="phone tilt phone-float">
@@ -344,21 +337,15 @@
   </div>
 </section>
 
-<!-- CTA / WAITLIST -->
-<section id="waitlist">
+<!-- CTA / DOWNLOAD -->
+<section id="download">
   <div class="cta reveal">
-    <div class="platform-toggle" id="ptoggle">
-      <button class="on" data-p="iOS">📱 iOS</button>
-      <button data-p="Android">🤖 Android</button>
+    <h2>Sharp is live.</h2>
+    <p id="cta-sub">Available now on the App Store for iPhone. Stop scrolling, start knowing — today.</p>
+    <div class="download-cta">
+      <a href="https://apps.apple.com/app/id6786261980" class="btn btn-primary">Download on the App Store →</a>
     </div>
-    <h2>Be first to get Sharp.</h2>
-    <p id="cta-sub">Launching on iOS in 2026. Join the waitlist and you'll be first through the door.</p>
-    <form class="waitlist" id="wl-form">
-      <input type="email" id="wl-email" placeholder="you@email.com" required aria-label="Email address" />
-      <button type="submit" class="btn btn-primary">Join the list</button>
-    </form>
-    <div id="wl-done">✓ You're on the list. We'll be in touch.</div>
-    <p class="cta-note">No spam. Just one email when we launch. Stop scrolling, start knowing.</p>
+    <p class="cta-note">Free to download. 7-day free trial, then $49.99/year. Cancel anytime.</p>
   </div>
 </section>
 
@@ -376,33 +363,6 @@
   // Scroll reveal
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  // Platform toggle (iOS / Android waitlist)
-  const toggle=document.getElementById('ptoggle');
-  const sub=document.getElementById('cta-sub');
-  let platform='iOS';
-  toggle.addEventListener('click',e=>{
-    if(e.target.tagName!=='BUTTON')return;
-    [...toggle.children].forEach(b=>b.classList.remove('on'));
-    e.target.classList.add('on');
-    platform=e.target.dataset.p;
-    sub.textContent = platform==='iOS'
-      ? "Launching on iOS in 2026. Join the waitlist and you'll be first through the door."
-      : "Android is coming after iOS. Join the list and we'll let you know the moment it's ready — your spot is saved.";
-  });
-
-  // Waitlist submit — DEMO ONLY (client-side). To capture real emails,
-  // point this form at Formspree / ConvertKit / Mailchimp / Supabase.
-  document.getElementById('wl-form').addEventListener('submit',ev=>{
-    ev.preventDefault();
-    const email=document.getElementById('wl-email').value;
-    console.log('Waitlist signup (demo):',{platform,email});
-    document.getElementById('wl-form').style.display='none';
-    document.getElementById('wl-done').style.display='block';
-    document.getElementById('wl-done').textContent =
-      platform==='iOS' ? "✓ You're on the iOS list. We'll email you at launch."
-                       : "✓ Saved! You'll hear from us when Android lands.";
-  });
 </script>
 </body>
 </html>
