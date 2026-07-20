@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sharp</title>
+<script>
+  // A friend-invite link (sharpdaily.app/i/<CODE>) opened WITHOUT the app installed lands
+  // here (static hosting has no file at that path). Send them to the App Store; once they
+  // install Sharp, tapping the same link opens the app and auto-adds the friend.
+  (function () {
+    var p = location.pathname || "";
+    if (p.indexOf("/i/") === 0 || p === "/i") {
+      location.replace("https://apps.apple.com/app/id6786261980");
+    } else {
+      location.replace("/");
+    }
+  })();
+</script>
+<meta http-equiv="refresh" content="0; url=/">
+</head>
+<body style="font-family:-apple-system,BlinkMacSystemFont,Georgia,serif;background:#111;color:#eee;text-align:center;padding:80px 24px">
+  <p>Redirecting… if nothing happens,
+     <a href="https://apps.apple.com/app/id6786261980" style="color:#E5532E">get Sharp on the App Store</a>.</p>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["DTLJ9MRT25.app.sharpdaily.sharp"],
+        "components": [
+          { "/": "/i/*", "comment": "Friend invite links open Sharp and auto-add the sharer as a friend." }
+        ]
+      }
+    ]
+  }
+}
